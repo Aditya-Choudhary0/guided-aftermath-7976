@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, Heading, Input, Button, FormControl, FormLabel, InputGroup, InputRightElement } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../components/AuthContext';
+import styles from './signup.module.css';
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -38,8 +39,8 @@ const SignupPage = () => {
   };
 
   return (
-    <Box p="4">
-      <Heading>Signup Page</Heading>
+    <Box className={styles['signup-container']}>
+      <Heading className={styles['signup-heading']}>Signup Page</Heading>
       {/* Name Input */}
       <FormControl mb="4">
         <FormLabel>Name</FormLabel>
@@ -47,6 +48,7 @@ const SignupPage = () => {
           placeholder="Enter your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          className={styles['signup-input']}
         />
       </FormControl>
       {/* Email Input */}
@@ -57,6 +59,7 @@ const SignupPage = () => {
           placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className={styles['signup-input']}
         />
       </FormControl>
       {/* Password Input */}
@@ -68,6 +71,7 @@ const SignupPage = () => {
             placeholder="Enter password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className={styles['signup-input']}
           />
           {/* Show/Hide Password Button */}
           <InputRightElement width="4.5rem">
@@ -78,11 +82,11 @@ const SignupPage = () => {
         </InputGroup>
       </FormControl>
       {/* Signup Button */}
-      <Button onClick={handleSignup}>Signup</Button>
+      <Button onClick={handleSignup} className={styles['signup-button']}>Signup</Button>
 
       {/* Display success message after successful signup */}
       {signupSuccess && (
-        <p>Signup successful! Redirecting to login...</p>
+        <p className={`${styles['signup-result']} ${styles['signup-success']}`}>Signup successful! Redirecting to login...</p>
       )}
     </Box>
   );

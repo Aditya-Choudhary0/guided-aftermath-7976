@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { Box, Heading, Input, Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../components/AuthContext';
+import styles from './login.module.css';
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, isAuthenticated } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginResult, setLoginResult] = useState(null);
@@ -21,7 +22,7 @@ const LoginPage = () => {
         login(user.name);
         setLoginResult('success');
         setTimeout(() => {
-          navigate('/');
+          navigate('/products');
         }, 2000);
       } else {
         setLoginResult('fail');
@@ -31,11 +32,16 @@ const LoginPage = () => {
     }
   };
 
+  if (isAuthenticated()) {
+    navigate('/products');
+  }
+
   return (
-    <Box p="4">
-      <Heading>Login Page</Heading>
+    <Box className={styles['login-box']}>
+      <Heading className={styles['login-heading']}>Login Page</Heading>
       {/* Email Input */}
       <Input
+        className={styles['login-input']}
         type="email"
         placeholder="Enter your email"
         value={email}
@@ -43,17 +49,24 @@ const LoginPage = () => {
       />
       {/* Password Input */}
       <Input
+        className={styles['login-input']}
         type="password"
         placeholder="Enter password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       {/* Login Button */}
-      <Button onClick={handleLogin}>Login</Button>
+      <Button className={styles['login-button']} onClick={handleLogin}>Login</Button>
 
       {/* Display login result */}
-      {loginResult === 'success' && <p>Login successful! Redirecting to home...</p>}
-      {loginResult === 'fail' && <p>Login failed. Please check your credentials.</p>}
+      {loginResult === 'success' && 
+        <p className={`${styles['login-result']} ${styles['login-success']}`}>
+          Login successful! Redirecting to home...
+        </p>}
+      {loginResult === 'fail' && 
+      <p className={`${styles['login-result']} ${styles['login-fail']}`}>
+        Login failed. Please check your credentials.
+      </p>}
     </Box>
   );
 };

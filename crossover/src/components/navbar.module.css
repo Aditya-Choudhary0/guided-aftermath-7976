@@ -1,0 +1,25 @@
+.navbar {
+    background-color: cyan;
+}
+  
+.navLinks a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin-right: 1rem;
+}
+  
+.userWelcome {
+    color: rgb(0, 0, 0);
+    margin-right: 1rem;
+}
+  
+.logoutButton {
+    background-color: rgb(0, 0, 0);
+    color: cyan;
+}
+  
+.loginLinks a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+  
