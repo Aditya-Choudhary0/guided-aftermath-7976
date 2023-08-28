@@ -8,6 +8,7 @@ import HomePage from './HomePage';
 import Login from '../pages/Login';
 import Signup from '../pages/Signup';
 import CartPage from '../pages/CartPage';
+import ProductPage from '../pages/ProductPage';
 // Import other page components if needed 
 
 const PrivateRoute = ({ element, ...rest }) => {
@@ -27,8 +28,7 @@ const AppRoutes = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/cart" element={<PrivateRoute element={<CartPage />} />} />
-            {/* <Route path="/product" element={<ProductPage />} />
-            <Route path="/cart" element={<CartPage />} /> */}
+            <Route path="/product" element={<ProductPage />} />
           </RouterRoutes>
           <Footer />
         </BrowserRouter>

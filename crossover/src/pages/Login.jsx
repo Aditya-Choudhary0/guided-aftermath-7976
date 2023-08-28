@@ -22,8 +22,8 @@ const LoginPage = () => {
         login(user.name);
         setLoginResult('success');
         setTimeout(() => {
-          navigate('/products');
-        }, 2000);
+          navigate('/');
+        }, 1500);
       } else {
         setLoginResult('fail');
       }
@@ -33,7 +33,7 @@ const LoginPage = () => {
   };
 
   if (isAuthenticated()) {
-    navigate('/products');
+    navigate('/');
   }
 
   return (

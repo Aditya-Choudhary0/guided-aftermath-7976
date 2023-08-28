@@ -28,7 +28,7 @@ const SignupPage = () => {
         
         setSignupSuccess(true);
         setTimeout(() => {
-          navigate('/login');
+          navigate('/');
         }, 2000);
       } else {
         console.error('Signup failed');
