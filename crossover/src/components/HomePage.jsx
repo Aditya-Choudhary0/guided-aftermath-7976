@@ -6,25 +6,35 @@ import ImageSlider from './ImageSlider' ;
 import OffersSection from './OffersSection';
 import BestSellersSection from './BestSellersSection';
 import CustomerReviewsSection from './CustomerReviewsSection';
+import styles from './HomePage.module.css';
 
 const HomePage = () => {
+  const images = [
+    "https://soliloquywp.com/wp-content/uploads/2016/08/nb_15_8.gif",
+    "https://oconnors.ca/wp-content/uploads/2014/04/mens-shoes-slider.jpg",
+    "https://images01.nicepagecdn.com/page/50/97/website-design-preview-50972.jpg",
+  ];
+
   return (
-    <Box>
-      <Navbar />
+    <Box className={styles.homePage}>
       <Container maxW="container.lg" mt="4">
-        {/* Image Slider */}
-        <ImageSlider />
 
-        {/* Offers Section */}
-        <OffersSection />
+        <div className={styles.sliderContainer}>
+          <ImageSlider images={images} />
+        </div>
 
-        {/* Best Sellers Section */}
-        <BestSellersSection />
+        <div className={styles.offersSection}>
+          <OffersSection />
+        </div>
 
-        {/* Customer Reviews Section */}
-        <CustomerReviewsSection />
+        <div className={styles.bestSellersSection}>
+          <BestSellersSection />
+        </div>
+
+        <div className={styles.customerReviewsSection}>
+          <CustomerReviewsSection />
+        </div>
       </Container>
-      <Footer />
     </Box>
   );
 };
