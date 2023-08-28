@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <Flex className={styles.navbar} p="4" align="center">
       <Box>
-        <Image src="./Project_Logo" alt="Logo" h="40px" />
+        <Image src="https://drive.google.com/file/d/1mD6aprMcZG5_o6guysF27cxinrDk1SaA/view?usp=drive_link" alt="Logo" h="40px" />
       </Box>
  
       <Spacer />

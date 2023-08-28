@@ -23,7 +23,7 @@ const LoginPage = () => {
         setLoginResult('success');
         setTimeout(() => {
           navigate('/');
-        }, 1500);
+        }, 4000);
       } else {
         setLoginResult('fail');
       }
